@@ -38,9 +38,6 @@ public class ExcelOpenSave {
         Path source = Paths.get(currentXlsFile.getAbsolutePath());
         Path dist = Paths.get(sb.toString());
 
-
-        //System.out.println(sb.toString());
-
         try {
             if(Files.exists(dist)) Files.delete(dist);
             Files.move(source, dist);

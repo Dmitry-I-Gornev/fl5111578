@@ -18,7 +18,7 @@ public class SendPost{
                 .followRedirects(HttpClient.Redirect.NORMAL)
                 .connectTimeout(Duration.ofSeconds(20))
                 .followRedirects(HttpClient.Redirect.NEVER)
-                .proxy(ProxySelector.of(new InetSocketAddress("proxy1.teplo.local", 3128)))
+                //.proxy(ProxySelector.of(new InetSocketAddress("proxy1.teplo.local", 3128)))
                 .build();;
         String jsonStr = new StringBuilder()
                 .append("{")
@@ -26,7 +26,7 @@ public class SendPost{
                 .append("\"requestDate\":\"" + getDate() + "\"")
                 .append("}")
                 .toString();
-       // System.out.println(jsonStr);
+
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://statusnpd.nalog.ru/api/v1/tracker/taxpayer_status"))
                 .setHeader("User-Agent", "Java 11 HttpClient Bot")
