@@ -23,7 +23,6 @@ public class Main {
             rowTotal = readSheet.getLastRowNum();
             if ((rowTotal > 0) || (readSheet.getPhysicalNumberOfRows() > 0)) {
                 rowTotal++;
-                //System.out.println(rowTotal);
             }
         }
         for(int i = Config.getInstance().getRowStart(); i < rowTotal+1; i++) {
@@ -45,6 +44,7 @@ public class Main {
                 }
                 // Сервер поддерживает не более двух запросов в минуту
                 // с одного IP
+                if (i == rowTotal) break;
                 Thread.sleep(30000);
             } catch (NullPointerException e) {
                 System.out.println("Null");
